@@ -1,7 +1,9 @@
 package com.singlethread.rcore.ui;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+import com.singlethread.rcore.utils.ViewUtils;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -9,7 +11,7 @@ import org.greenrobot.eventbus.EventBus;
  * Created by litianyuan on 2017/8/31.
  */
 
-public abstract class BaseActivity extends Activity{
+public abstract class BaseActivity extends AppCompatActivity implements IContext{
 
 
     @Override
@@ -40,4 +42,16 @@ public abstract class BaseActivity extends Activity{
         super.onDestroy();
         EventBus.getDefault().unregister(this);
     }
+
+
+    @Override
+    public void finish() {
+        super.finish();
+        closeAnim();
+    }
+
+    protected void closeAnim() {
+      ViewUtils.anima(ViewUtils.RIGHT_IN, this);
+    }
+
 }
