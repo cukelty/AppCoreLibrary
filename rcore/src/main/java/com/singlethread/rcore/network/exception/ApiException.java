@@ -7,7 +7,7 @@ package com.singlethread.rcore.network.exception;
 public class ApiException extends RuntimeException{
     public final int errorCode;
 
-    public ApiException(String message, int errorCode) {
+    public ApiException(int errorCode,String message) {
         super(message);
         this.errorCode = errorCode;
     }
