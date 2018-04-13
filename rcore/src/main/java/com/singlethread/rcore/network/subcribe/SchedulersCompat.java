@@ -1,8 +1,9 @@
 package com.singlethread.rcore.network.subcribe;
 
+import io.reactivex.ObservableSource;
+import io.reactivex.ObservableTransformer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import rx.Observable;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 /**
  * Created with Android Studio
@@ -12,42 +13,41 @@ import rx.schedulers.Schedulers;
 
 public class SchedulersCompat {
 
-    private static final Observable.Transformer computationTransformer =
-            new Observable.Transformer() {
-                @Override public Object call(Object observable) {
-                    return ((Observable) observable).subscribeOn(Schedulers.computation())
-                            .observeOn(AndroidSchedulers.mainThread());
-                }
-            };
-
-    private static final Observable.Transformer ioTransformer = new Observable.Transformer() {
-        @Override public Object call(Object observable) {
-            return ((Observable) observable).subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread());
+    private static final ObservableTransformer computationTransformer=new ObservableTransformer() {
+        @Override
+        public ObservableSource apply(io.reactivex.Observable observable) {
+            return observable.subscribeOn(io.reactivex.schedulers.Schedulers.computation()).observeOn(AndroidSchedulers.mainThread());
         }
     };
 
-    private static final Observable.Transformer newTransformer = new Observable.Transformer() {
-        @Override public Object call(Object observable) {
-            return ((Observable) observable).subscribeOn(Schedulers.newThread())
-                    .observeOn(AndroidSchedulers.mainThread());
+    private static final ObservableTransformer ioTransformer=new ObservableTransformer() {
+        @Override
+        public ObservableSource apply(io.reactivex.Observable observable) {
+            return observable.subscribeOn(io.reactivex.schedulers.Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
         }
     };
 
-    private static final Observable.Transformer trampolineTransformer = new Observable.Transformer() {
-        @Override public Object call(Object observable) {
-            return ((Observable) observable).subscribeOn(Schedulers.trampoline())
-                    .observeOn(AndroidSchedulers.mainThread());
+
+    private static final ObservableTransformer newTransformer=new ObservableTransformer() {
+        @Override
+        public ObservableSource apply(io.reactivex.Observable observable) {
+            return observable.subscribeOn(io.reactivex.schedulers.Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread());
         }
     };
 
-    private static final Observable.Transformer executorTransformer = new Observable.Transformer() {
-        @Override public Object call(Object observable) {
-            return ((Observable) observable).subscribeOn(Schedulers.from(ExecutorManager.eventExecutor))
-                    .observeOn(AndroidSchedulers.mainThread());
+    private static final ObservableTransformer trampolineTransformer=new ObservableTransformer() {
+        @Override
+        public ObservableSource apply(io.reactivex.Observable observable) {
+            return observable.subscribeOn(io.reactivex.schedulers.Schedulers.trampoline()).observeOn(AndroidSchedulers.mainThread());
         }
     };
 
+    private static final ObservableTransformer executorTransformer=new ObservableTransformer() {
+        @Override
+        public ObservableSource apply(io.reactivex.Observable observable) {
+            return observable.subscribeOn(io.reactivex.schedulers.Schedulers.from(ExecutorManager.eventExecutor)).observeOn(AndroidSchedulers.mainThread());
+        }
+    };
 
     /**
      * Don't break the chain: use RxJava's compose() operator
