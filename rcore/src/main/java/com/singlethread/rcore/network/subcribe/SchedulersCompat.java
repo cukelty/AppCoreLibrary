@@ -1,9 +1,9 @@
 package com.singlethread.rcore.network.subcribe;
 
+import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.ObservableTransformer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import rx.Observable;
 
 /**
  * Created with Android Studio
@@ -52,19 +52,19 @@ public class SchedulersCompat {
     /**
      * Don't break the chain: use RxJava's compose() operator
      */
-    public static <T> Observable.Transformer<T, T> applyComputationSchedulers() {
-        return (Observable.Transformer<T, T>) computationTransformer;
+    public static <T> ObservableTransformer<T, T> applyComputationSchedulers() {
+        return (ObservableTransformer<T, T>) computationTransformer;
     }
-    public static <T> Observable.Transformer<T, T> applyIoSchedulers() {
-        return (Observable.Transformer<T, T>) ioTransformer;
+    public static <T> ObservableTransformer<T, T> applyIoSchedulers() {
+        return (ObservableTransformer<T, T>) ioTransformer;
     }
-    public static <T> Observable.Transformer<T, T> applyNewSchedulers() {
-        return (Observable.Transformer<T, T>) newTransformer;
+    public static <T> ObservableTransformer<T, T> applyNewSchedulers() {
+        return (ObservableTransformer<T, T>) newTransformer;
     }
-    public static <T> Observable.Transformer<T, T> applyTrampolineSchedulers() {
-        return (Observable.Transformer<T, T>) trampolineTransformer;
+    public static <T> ObservableTransformer<T, T> applyTrampolineSchedulers() {
+        return (ObservableTransformer<T, T>) trampolineTransformer;
     }
-    public static <T> Observable.Transformer<T, T> applyExecutorSchedulers() {
-        return (Observable.Transformer<T, T>) executorTransformer;
+    public static <T> ObservableTransformer<T, T> applyExecutorSchedulers() {
+        return (ObservableTransformer<T, T>) executorTransformer;
     }
 }
