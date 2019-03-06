@@ -1,1 +1,1 @@
-include ':app', ':rcore'
+include ':app', ':framework'
