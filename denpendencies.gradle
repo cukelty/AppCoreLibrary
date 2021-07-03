@@ -3,13 +3,14 @@ def retrofit_version="2.3.0"
 def glide_version="4.8.0"
 def butterknife_version="8.4.0"
 def leakcanaryVersion="1.6.2"
+def kotlin_version="1.5.10"
 
 project.ext{
     android = [
-            compileSdkVersion: 27,
-            buildToolsVersion: "27.0.3",
+            compileSdkVersion: 30,
+            buildToolsVersion: "30.0.3",
             minSdkVersion    : 17,
-            targetSdkVersion : 27,
+            targetSdkVersion : 30,
     ]
     dependencies = [
             //android-support
