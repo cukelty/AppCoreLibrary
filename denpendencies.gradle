@@ -1,10 +1,6 @@
-def support_version = '27.1.1'
 def retrofit_version="2.3.0"
 def glide_version="4.8.0"
-def butterknife_version="8.4.0"
 def leakcanaryVersion="1.6.2"
-def kotlin_version="1.5.10"
-
 project.ext{
     android = [
             compileSdkVersion: 30,
@@ -14,61 +10,44 @@ project.ext{
     ]
     dependencies = [
             //android-support
-            "support-v4"                 : "com.android.support:support-v4:${support_version}",
-            "appcompat-v7"               : "com.android.support:appcompat-v7:${support_version}",
-            "design"                     : "com.android.support:design:${support_version}",
-            "recyclerview-v7"            : "com.android.support:recyclerview-v7:${support_version}",
-            "cardview-v7"                : "com.android.support:cardview-v7:${support_version}",
-            "leanback-v17"                : "com.android.support:leanback-v17:${support_version}",
-            "support-annotations"        : "com.android.support:support-annotations:${support_version}",
-            "gridlayout-v7"              : "com.android.support:gridlayout-v7:${support_version}",
-            "support-design"             : "com.android.support:design:${support_version}",
-            "constraint-layout"          : "com.android.support.constraint:constraint-layout:1.0.2",
+            constraint                 : 'com.android.support.constraint:constraint-layout:2.0.1',
             //greenrobot
-            "greendao"                   : "org.greenrobot:greendao:3.2.2",
-            "eventbus"                   : "org.greenrobot:eventbus:3.0.0",
+            greendao                   : "org.greenrobot:greendao:3.2.2",
+            eventbus                   : "org.greenrobot:eventbus:3.0.0",
             //rx
-            "rxJava2"                    : "io.reactivex.rxjava2:rxjava:2.2.2",
-            "rxandroid"                  : "io.reactivex.rxjava2:rxandroid:2.1.0",
-            "rxpermissions"              : "com.github.tbruyelle:rxpermissions:0.10.2",
+            rxJava2                    : "io.reactivex.rxjava2:rxjava:2.2.2",
+            rxandroid                  : "io.reactivex.rxjava2:rxandroid:2.1.0",
+            rxpermissions              : "com.github.tbruyelle:rxpermissions:0.10.2",
             // retrofit2 + okhttp3
-            "retrofit2"                  : "com.squareup.retrofit2:retrofit:${retrofit_version}",
-            "retrofit-adapter-rxjava2"   : "com.squareup.retrofit2:adapter-rxjava2:${retrofit_version}",
-            "retrofit-converter-gson"    : "com.squareup.retrofit2:converter-gson:${retrofit_version}",
-            "retrofit-mock"              : "com.squareup.retrofit2:retrofit-mock:${retrofit_version}",
+            retrofit2                  : "com.squareup.retrofit2:retrofit:${retrofit_version}",
+            retrofit_adapter_rxjava2   : "com.squareup.retrofit2:adapter-rxjava2:${retrofit_version}",
+            retrofit_converter_gson    : "com.squareup.retrofit2:converter-gson:${retrofit_version}",
+            retrofit_mock              : "com.squareup.retrofit2:retrofit-mock:${retrofit_version}",
             //okHttp3
-            "okhttp3"                    : "com.squareup.okhttp3:okhttp:3.10.0",
-            "okhttp3-logging-interceptor": "com.squareup.okhttp3:logging-interceptor:3.6.0",
+            okhttp3                    : "com.squareup.okhttp3:okhttp:3.10.0",
+            okhttp3_logging_interceptor: "com.squareup.okhttp3:logging-interceptor:3.6.0",
             //glide
-            "glide"                      : "com.github.bumptech.glide:glide:${glide_version}",
-            "glide-compiler"             : "com.github.bumptech.glide:compiler:${glide_version}",
-            "glide-okhttp"               : "com.github.bumptech.glide:okhttp-integration:${glide_version}",
-            //butterknife
-            "butterknife"                : "com.jakewharton:butterknife:${butterknife_version}",
-            "butterknife-compiler"       : "com.jakewharton:butterknife-compiler:${butterknife_version}",
-            //hotfix
-            "alisdk-hotfix"              : "com.taobao.android:alisdk-hotfix:2.0.5",
+            glide                      : "com.github.bumptech.glide:glide:${glide_version}",
+            glide_compiler             : "com.github.bumptech.glide:compiler:${glide_version}",
+            glide_okhttp               : "com.github.bumptech.glide:okhttp-integration:${glide_version}",
             //logger
-            "logger"                     : "com.orhanobut:logger:2.1.0",
+            logger                     : "com.orhanobut:logger:2.1.0",
             //markdownview
-            "markdownview"               : "us.feras.mdv:markdownview:1.1.0",
+            markdownview               : "us.feras.mdv:markdownview:1.1.0",
 
-            "FlycoTabLayout"             : "com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar",
+            FlycoTabLayout             : "com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar",
 
-            "activityrouter-compiler"    : "com.github.mzule.activityrouter:compiler:1.1.7",
-            "activityrouter"             : "com.github.mzule.activityrouter:activityrouter:1.2.2",
+            nineoldandroids            : "com.nineoldandroids:library:2.4.0",
 
-            "nineoldandroids"            : "com.nineoldandroids:library:2.4.0",
+            BaseRecyclerViewHelper     : "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30",
 
-            "BaseRecyclerViewHelper"     : "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30",
+            convenientbanner           : "com.bigkoo:convenientbanner:2.0.5",
 
-            "convenientbanner"           : "com.bigkoo:convenientbanner:2.0.5",
-
-            "tray"                       : "net.grandcentrix.tray:tray:0.12.0",
+            tray                       : "net.grandcentrix.tray:tray:0.12.0",
 
             //leakcanary
-            "leakcanary-android"          : "com.squareup.leakcanary:leakcanary-android:${leakcanaryVersion}",
-            "leakcanary-android-no-op"    : "com.squareup.leakcanary:leakcanary-android-no-op:${leakcanaryVersion}",
-            "leakcanary-android-fragment" : "com.squareup.leakcanary:leakcanary-support-fragment:${leakcanaryVersion}",
+            leakcanary_android          : "com.squareup.leakcanary:leakcanary-android:${leakcanaryVersion}",
+            leakcanary_android_no_op    : "com.squareup.leakcanary:leakcanary-android-no-op:${leakcanaryVersion}",
+            leakcanary_android_fragment : "com.squareup.leakcanary:leakcanary-support-fragment:${leakcanaryVersion}",
     ]
 }
