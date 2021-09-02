@@ -1,16 +1,25 @@
-def retrofit_version="2.3.0"
-def glide_version="4.8.0"
-def leakcanaryVersion="1.6.2"
-project.ext{
+ext{
     android = [
+            applicationId    : "com.cuke.demo",
+            versionCode      : 1,
+            versionName      : "1.0",
+
             compileSdkVersion: 30,
             buildToolsVersion: "30.0.3",
             minSdkVersion    : 17,
             targetSdkVersion : 30,
     ]
-    dependencies = [
+    versions = [
+            'retrofit_version':'2.3.0',
+            'glide_version':'4.8.0',
+            'leakcanaryVersion':'1.6.2'
+    ]
+    //support配置
+    support = [
             //android-support
-            constraint                 : 'com.android.support.constraint:constraint-layout:2.0.1',
+            constraint                 : 'com.android.support.constraint:constraint-layout:2.0.1'
+    ]
+    dependencies = [
             //greenrobot
             greendao                   : "org.greenrobot:greendao:3.2.2",
             eventbus                   : "org.greenrobot:eventbus:3.0.0",
@@ -19,17 +28,17 @@ project.ext{
             rxandroid                  : "io.reactivex.rxjava2:rxandroid:2.1.0",
             rxpermissions              : "com.github.tbruyelle:rxpermissions:0.10.2",
             // retrofit2 + okhttp3
-            retrofit2                  : "com.squareup.retrofit2:retrofit:${retrofit_version}",
-            retrofit_adapter_rxjava2   : "com.squareup.retrofit2:adapter-rxjava2:${retrofit_version}",
-            retrofit_converter_gson    : "com.squareup.retrofit2:converter-gson:${retrofit_version}",
-            retrofit_mock              : "com.squareup.retrofit2:retrofit-mock:${retrofit_version}",
+            retrofit2                  : "com.squareup.retrofit2:retrofit:${versions['retrofit_version']}",
+            retrofit_adapter_rxjava2   : "com.squareup.retrofit2:adapter-rxjava2:${versions['retrofit_version']}",
+            retrofit_converter_gson    : "com.squareup.retrofit2:converter-gson:${versions['retrofit_version']}",
+            retrofit_mock              : "com.squareup.retrofit2:retrofit-mock:${versions['retrofit_version']}",
             //okHttp3
             okhttp3                    : "com.squareup.okhttp3:okhttp:3.10.0",
             okhttp3_logging_interceptor: "com.squareup.okhttp3:logging-interceptor:3.6.0",
             //glide
-            glide                      : "com.github.bumptech.glide:glide:${glide_version}",
-            glide_compiler             : "com.github.bumptech.glide:compiler:${glide_version}",
-            glide_okhttp               : "com.github.bumptech.glide:okhttp-integration:${glide_version}",
+            glide                      : "com.github.bumptech.glide:glide:${versions['glide_version']}",
+            glide_compiler             : "com.github.bumptech.glide:compiler:${versions['glide_version']}",
+            glide_okhttp               : "com.github.bumptech.glide:okhttp-integration:${versions['glide_version']}",
             //logger
             logger                     : "com.orhanobut:logger:2.1.0",
             //markdownview
@@ -46,8 +55,8 @@ project.ext{
             tray                       : "net.grandcentrix.tray:tray:0.12.0",
 
             //leakcanary
-            leakcanary_android          : "com.squareup.leakcanary:leakcanary-android:${leakcanaryVersion}",
-            leakcanary_android_no_op    : "com.squareup.leakcanary:leakcanary-android-no-op:${leakcanaryVersion}",
-            leakcanary_android_fragment : "com.squareup.leakcanary:leakcanary-support-fragment:${leakcanaryVersion}",
+            leakcanary_android          : "com.squareup.leakcanary:leakcanary-android:${versions['leakcanaryVersion']}",
+            leakcanary_android_no_op    : "com.squareup.leakcanary:leakcanary-android-no-op:${versions['leakcanaryVersion']}",
+            leakcanary_android_fragment : "com.squareup.leakcanary:leakcanary-support-fragment:${versions['leakcanaryVersion']}",
     ]
 }

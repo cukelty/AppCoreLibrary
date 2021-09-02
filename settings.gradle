@@ -1,1 +1,5 @@
 include ':app', ':framework'
+include ':popup'
+include ':lib_base'
+include ':lib_res'
+include ':module_home'
