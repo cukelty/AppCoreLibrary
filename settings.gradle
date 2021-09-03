@@ -1,4 +1,4 @@
-include ':app', ':framework'
+include ':app'
 include ':popup'
 include ':lib_base'
 include ':lib_res'

@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">RCore</string>
-
-    <!--  -->
-    <string name="network_unavailable">网络失联中，么么哒</string>
-    <string name="request_failed">网络错误,请稍候</string>
-</resources>
