@@ -1,9 +1,17 @@
 if (isBuildModule.toBoolean()) {
     //作为独立App应用运行
     apply plugin: 'com.android.application'
+    apply plugin: 'kotlin-android'
+    apply plugin: 'kotlin-kapt'
+    apply plugin: 'kotlin-parcelize'
+    apply plugin: 'dagger.hilt.android.plugin'
 } else {
     //作为组件运行
     apply plugin: 'com.android.library'
+    apply plugin: 'kotlin-android'
+    apply plugin: 'kotlin-kapt'
+    apply plugin: 'kotlin-parcelize'
+    apply plugin: 'dagger.hilt.android.plugin'
 }
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -51,3 +59,5 @@ android {
         dataBinding = true
     }
 }
+
+

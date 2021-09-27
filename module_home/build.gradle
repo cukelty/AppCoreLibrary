@@ -12,5 +12,8 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation project(":lib_base")
+    //hilt
+    api 'com.google.dagger:hilt-android:2.33-beta'
+    kapt 'com.google.dagger:hilt-android-compiler:2.33-beta'
 }

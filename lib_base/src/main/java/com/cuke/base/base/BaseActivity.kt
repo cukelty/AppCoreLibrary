@@ -3,17 +3,18 @@ package com.cuke.base.base
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
-abstract class BaseActivity<T :BasePresenter<IBaseView>,V: IBaseView> : AppCompatActivity(),IBaseView{
+abstract class BaseActivity<T : BasePresenter<in IBaseView>, V : IBaseView> : AppCompatActivity(),
+    IBaseView {
 
-    protected var presenter:T?=null
+    private var presenter: T? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        presenter=createPresenter()
+        presenter = createPresenter()
         presenter?.attachView(this)
     }
 
-    abstract fun createPresenter():T
+    abstract fun createPresenter(): T
 
     override fun onDestroy() {
         super.onDestroy()
@@ -21,7 +22,7 @@ abstract class BaseActivity<T :BasePresenter<IBaseView>,V: IBaseView> : AppCompa
     }
 
 
-    fun showMessage(message:String){
+    fun showMessage(message: String) {
 
     }
 

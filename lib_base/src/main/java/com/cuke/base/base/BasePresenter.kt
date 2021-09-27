@@ -3,23 +3,18 @@ package com.cuke.base.base
 import androidx.lifecycle.LifecycleObserver
 import java.lang.ref.WeakReference
 
-class BasePresenter<T :IBaseView> :LifecycleObserver {
+open class BasePresenter<T : IBaseView> : LifecycleObserver {
 
-    var baseView :WeakReference<T>? = null
+    var baseView: WeakReference<T>? = null
 
-    fun attachView(view : T){
-        baseView=WeakReference(view)
+    fun attachView(view: T) {
+        baseView = WeakReference(view)
     }
 
-    fun detachView(){
-        if (baseView!=null){
+    fun detachView() {
+        if (baseView != null) {
             baseView!!.clear()
-            baseView=null
+            baseView = null
         }
     }
-
-
-
-
-
 }
