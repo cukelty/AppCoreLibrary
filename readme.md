@@ -10,8 +10,8 @@
 9. MVP框架的Base 设计
 10. MVVM 框架的设计
 11. RXJAVA + Retrofit+OKHTTP 框架设计
-12. 标准recycleview 的分割线适配模型
-13. 可拖动recycleview 总结
+12. 标准recyclerView 的分割线适配模型
+13. 可拖动recyclerview 总结
 14. Flutter 开发
 15. 使用AOP模型全局实现自动化注解编码
 16. maven 仓库配置化
