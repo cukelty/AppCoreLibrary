@@ -1,4 +1,4 @@
-package com.cuke.base.base
+package com.cuke.base.base.mvp
 
 interface IBaseView {
 
