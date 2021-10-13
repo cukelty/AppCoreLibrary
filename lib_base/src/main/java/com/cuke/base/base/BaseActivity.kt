@@ -3,7 +3,6 @@ package com.cuke.base.base
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.cuke.base.base.mvp.IBaseView
 import com.cuke.base.utils.ToastUtils
@@ -36,6 +35,10 @@ abstract class BaseActivity : AppCompatActivity(), IBaseView {
         gotoActivity(clz, false, null)
     }
 
+    /**
+     * @gotoActivity
+     * open activity and close current;
+     */
     open fun gotoActivity(clz: Class<*>?, isCloseCurrentActivity: Boolean) {
         gotoActivity(clz, isCloseCurrentActivity, null)
     }
