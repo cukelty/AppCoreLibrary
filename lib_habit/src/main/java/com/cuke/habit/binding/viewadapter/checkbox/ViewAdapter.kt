@@ -10,6 +10,6 @@ object ViewAdapter {
      */
     @BindingAdapter(value = ["onCheckedChangedCommand"], requireAll = false)
     fun setCheckedChanged(checkBox: CheckBox, bindingCommand: BindingCommand<Boolean?>) {
-        checkBox.setOnCheckedChangeListener { compoundButton, b -> bindingCommand.execute(b) }
+        checkBox.setOnCheckedChangeListener { _, b -> bindingCommand.execute(b) }
     }
 }
