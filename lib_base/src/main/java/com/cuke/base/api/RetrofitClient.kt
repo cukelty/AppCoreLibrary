@@ -8,25 +8,24 @@ import java.util.HashMap
 import java.util.concurrent.TimeUnit
 
 class RetrofitClient {
-    @Volatile
-    private var instance: RetrofitClient? = null
+//    @Volatile
+//    private var instance: RetrofitClient? = null
     private var mOkHttpClient: OkHttpClient? = null
 
-    private final var mRetrofits: HashMap<String, Retrofit>? = null
+    private var mRetrofits: HashMap<String, Retrofit> = HashMap()
 
-    fun getInstance(): RetrofitClient? {
-        if (instance == null) {
-            synchronized(RetrofitClient::class.java) {
-                if (instance == null) {
-                    instance = RetrofitClient()
-                }
-            }
-        }
-        return instance
-    }
+//    fun getInstance(): RetrofitClient? {
+//        if (instance == null) {
+//            synchronized(RetrofitClient::class.java) {
+//                if (instance == null) {
+//                    instance = RetrofitClient()
+//                }
+//            }
+//        }
+//        return instance
+//    }
 
     init {
-        mRetrofits = HashMap<String, Retrofit>()
         initOkHttpClient()
     }
 
@@ -44,16 +43,16 @@ class RetrofitClient {
         }
     }
 
-    fun <T> create(baseUrl: String?, mClass: Class<T>?): T {
-        var retrofit = mRetrofits!![baseUrl!!]
+    fun <T> create(baseUrl: String, mClass: Class<T>?): T {
+        var retrofit = mRetrofits[baseUrl]
         if (retrofit == null) {
             retrofit = createRetrofit(baseUrl)
-            mRetrofits!![baseUrl] = retrofit!!
+            mRetrofits[baseUrl] = retrofit
         }
-        return retrofit!!.create(mClass)
+        return retrofit.create(mClass)
     }
 
-    private fun createRetrofit(baseUrl: String?): Retrofit? {
+    private fun createRetrofit(baseUrl: String): Retrofit {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(mOkHttpClient)
