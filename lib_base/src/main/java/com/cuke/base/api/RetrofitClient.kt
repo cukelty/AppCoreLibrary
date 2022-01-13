@@ -14,17 +14,6 @@ class RetrofitClient {
 
     private var mRetrofits: HashMap<String, Retrofit> = HashMap()
 
-//    fun getInstance(): RetrofitClient? {
-//        if (instance == null) {
-//            synchronized(RetrofitClient::class.java) {
-//                if (instance == null) {
-//                    instance = RetrofitClient()
-//                }
-//            }
-//        }
-//        return instance
-//    }
-
     init {
         initOkHttpClient()
     }
